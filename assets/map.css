@@ -7,10 +7,13 @@
 
 nav.side-nav{
     position: fixed;
-    left: 70px;
+    right: 70px;
     top: calc(50% - 100px);
     z-index: 2;
 }
+
+nav.side-nav.white a{ color: white; }
+nav.side-nav.white a::after{ background-color: white; }
 
 nav.side-nav ul{
     display: flex;
@@ -19,21 +22,24 @@ nav.side-nav ul{
     margin: 0;
 }
 
-nav.side-nav li{ padding: 15px 0; }
+nav.side-nav li{
+    padding: 15px 0;
+    text-align: right;
+}
 
 nav.side-nav a{ font-size: 16px; }
-nav.side-nav a::before{
+nav.side-nav a::after{
     content: '';
     height: 2px;
     background-color: black;
     width: 0px;
-    margin-right: 5px;
+    margin-left: 5px;
     display: inline-block;
     vertical-align: middle;
-    transition: width 0.4s;
+    transition: width 0.4s, color 0.4s 0.2s;
 }
 
-nav.side-nav a.active::before{ width: 30px;}
+nav.side-nav a.active::after{ width: 30px;}
 
 #map_content_wrapper{
     position: absolute;
@@ -48,12 +54,56 @@ nav.side-nav a.active::before{ width: 30px;}
     height: 100vh;
 }
 
+#countries_cont{
+    position: relative;
+    background-color: black;
+}
+
+#countries_cont .countries-bg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;    
+    background-image: url('../images/countries.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* background-position: left top; */
+    background-position: center top;
+}
+
+#countries_cont > h2{
+    z-index: 3;
+    color: black;
+    margin: 0;
+    position: absolute;
+    top: 120px;
+    left: 120px;
+    font-size: 75px;
+    width: 600px;
+}
+
+#countries_list{
+    z-index: 3;
+    margin: 0;
+    position: absolute;
+    bottom: 120px;
+    left: 120px;
+    font-size: 25px;
+    width: 800px;
+}
+
+#countries_cont h2 > span{
+    color: dodgerblue;
+    font-size: 110px;
+}
 
 @media screen and (max-width: 768px){
     nav.side-nav{
         left: 0;
         top: unset;
-        bottom: 100px;
+        bottom: 80px;
         width: 100%;
     }
     
@@ -66,10 +116,37 @@ nav.side-nav a.active::before{ width: 30px;}
         position: relative;
     }
 
-    nav.side-nav a::before{
+    nav.side-nav a::after{
         position: absolute;
         bottom: -5px;
+        left: 0;
+        margin-left:0;
     }
     
-    nav.side-nav a.active::before{ width: 40px;}
+    nav.side-nav a.active::after{ width: 40px;}
+
+    #countries_cont .countries-bg{
+        background-position: 40% top;
+    }
+
+    #countries_cont > h2{
+        font-size: 30px;
+        width: calc(100% - 60px);
+
+        top: 150px;
+        left: 30px;
+    }
+
+    #countries_cont h2 > span{
+        font-size: 45px;
+        color: dodgerblue;
+    }    
+
+    #countries_list{
+        bottom: 140px;
+        left: 30px;
+        font-size: 20px;
+        width: calc(100% - 60px);;
+        text-align: right;
+    }
 }

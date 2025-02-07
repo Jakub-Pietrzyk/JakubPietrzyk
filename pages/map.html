@@ -17,6 +17,7 @@
 
     <link rel="stylesheet" href="../assets/index.css">
     <link rel="stylesheet" href="../assets/map.css">
+    <link rel="stylesheet" href="../assets/tooltip.css">
     <link rel="icon" href="../favicon.ico" type="image/x-icon">
     <script src="https://d3js.org/d3.v6.min.js"></script>
     <script src="https://d3-geo-projection.github.io/d3-geo-projection.v2.min.js"></script>
@@ -28,7 +29,7 @@
 
         <nav>
             <ul>
-                <li><a href="#" title="Map">Map</a></li>
+                <li><a href="#" title="Map" class="active-page">Map</a></li>
                 <li><a href="#" title="Trips">Trips</a></li>
                 <li><a href="#" title="Blog">Blog</a></li>
                 <li><a href="#" title="Gallery">Gallery</a></li>
@@ -36,7 +37,7 @@
         </nav>
     </header>
 
-    <nav class="side-nav">
+    <nav class="side-nav" id="side_nav">
         <ul>
             <li><a id="globe_link" class="maps-sidenav-link active" href="#" title="Globe" >Globe</a></li>
             <li><a id="countries_link" class="maps-sidenav-link" href="#" title="Countries">Countries</a></li>
@@ -45,10 +46,30 @@
     </nav>
 
     <div id="map_content_wrapper">
+
         <div class="map-content" id="globe_cont">
             <svg id="globe"></svg>
         </div>
-        <div class="map-content" id="countries_cont" style="background-color: blue;"></div>
+
+        <div class="map-content" id="countries_cont">
+            <div class="countries-bg tooltip-parent">
+                <div class="tooltip" data-position="4" style="left: 67%; top: 36%;">
+                    <span class="hint-radius"></span>
+                    <span class="hint-dot"></span>
+                    <div class="hint-content do--split-children">
+                        <p>
+                            Ahe is a coral atoll of 76 islands in the Tuamotu Archipelago. The only village is Tenukupara.
+                            <br />
+                            Polynesia, September 2024
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <h2 id="countries_title"><span>26</span> and still counting ...</h2>
+            <div id="countries_list"></div>
+        </div>
+
         <div class="map-content" id="pins_cont" style="background-color: green;"></div>
     </div>
     
@@ -60,5 +81,6 @@
     
     <script src="../scripts/globe.js"></script>
     <script src="../scripts/map_nav.js"></script>
+    <script src="../scripts/countries_list.js"></script>
 </body>
 </html>

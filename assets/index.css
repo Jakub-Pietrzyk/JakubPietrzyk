@@ -70,6 +70,16 @@ a{
     text-decoration: none;
     transition: color 0.4s ease, transform 0.4s ease;
     display: block;
+    position: relative;
+}
+
+a.active-page::before{
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    width: 30px;
+    height: 2px;
+    background-color: black;
 }
 
 a:hover{
