@@ -26,7 +26,8 @@ const ready = function() {
         
         if (countriesLink.classList.contains("active")) return;
 
-        wrapper.style.top = `-${screenHeight}px`;
+        // wrapper.style.top = `-${screenHeight}px`;
+        wrapper.style.top = `-100vh`;
         globeLink.classList.remove("active");
         pinsLink.classList.remove("active");
         countriesLink.classList.add("active");
@@ -37,7 +38,8 @@ const ready = function() {
         
         if (pinsLink.classList.contains("active")) return;
 
-        wrapper.style.top = `-${screenHeight * 2}px`;
+        // wrapper.style.top = `-${screenHeight * 2}px`;
+        wrapper.style.top = `-200vh`;
         globeLink.classList.remove("active");
         countriesLink.classList.remove("active");
         pinsLink.classList.add("active");
