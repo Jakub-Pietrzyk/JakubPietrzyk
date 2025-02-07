@@ -13,7 +13,7 @@ async function drawGlobe() {
     const isMobile = window.innerWidth < 768;
 
     const width = window.innerWidth;
-    const height = window.innerHeight - 80;
+    const height = window.innerHeight - 50;
     const size = isMobile ? 130 : 250;
 
     projection = d3.geoOrthographic()

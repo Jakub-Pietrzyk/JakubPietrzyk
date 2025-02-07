@@ -69,7 +69,6 @@ nav.side-nav a.active::after{ width: 30px;}
     background-image: url('../images/countries.jpg');
     background-size: cover;
     background-repeat: no-repeat;
-    /* background-position: left top; */
     background-position: center top;
 }
 
@@ -143,7 +142,7 @@ nav.side-nav a.active::after{ width: 30px;}
     }    
 
     #countries_list{
-        bottom: 140px;
+        bottom: 18vh;
         left: 30px;
         font-size: 20px;
         width: calc(100% - 60px);;
