@@ -70,6 +70,7 @@ nav.side-nav a.active::after{ width: 30px;}
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center top;
+    opacity: 0.85;
 }
 
 #countries_cont > h2{
@@ -91,10 +92,12 @@ nav.side-nav a.active::after{ width: 30px;}
     left: 120px;
     font-size: 25px;
     width: 800px;
+    font-family: "Twemoji Country Flags", "Roboto Mono", serif;
 }
 
 #countries_cont h2 > span{
-    color: dodgerblue;
+    color: royalblue;
+    /* color: white; */
     font-size: 110px;
 }
 
@@ -129,7 +132,7 @@ nav.side-nav a.active::after{ width: 30px;}
     }
 
     #countries_cont > h2{
-        font-size: 30px;
+        font-size: 35px;
         width: calc(100% - 60px);
 
         top: 150px;
@@ -138,7 +141,6 @@ nav.side-nav a.active::after{ width: 30px;}
 
     #countries_cont h2 > span{
         font-size: 45px;
-        color: dodgerblue;
     }    
 
     #countries_list{

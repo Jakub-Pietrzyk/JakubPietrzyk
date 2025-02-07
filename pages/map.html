@@ -21,6 +21,10 @@
     <link rel="icon" href="../favicon.ico" type="image/x-icon">
     <script src="https://d3js.org/d3.v6.min.js"></script>
     <script src="https://d3-geo-projection.github.io/d3-geo-projection.v2.min.js"></script>
+    <script type="module" defer>
+        import { polyfillCountryFlagEmojis } from "https://cdn.skypack.dev/country-flag-emoji-polyfill";
+        polyfillCountryFlagEmojis();
+    </script>
 </head>
 
 <body>
@@ -51,18 +55,18 @@
             <svg id="globe"></svg>
         </div>
 
-        <div class="map-content" id="countries_cont">
-            <div class="countries-bg tooltip-parent">
-                <div class="tooltip" data-position="4" style="left: 67%; top: 36%;">
-                    <span class="hint-radius"></span>
-                    <span class="hint-dot"></span>
-                    <div class="hint-content do--split-children">
-                        <p>
-                            Ahe is a coral atoll of 76 islands in the Tuamotu Archipelago. The only village is Tenukupara.
-                            <br />
-                            Polynesia, September 2024
-                        </p>
-                    </div>
+        <div class="map-content tooltip-parent" id="countries_cont">
+            <div class="countries-bg"></div>
+
+            <div class="tooltip darker" data-position="4" style="left: 67%; top: 36%;">
+                <span class="hint-radius"></span>
+                <span class="hint-dot"></span>
+                <div class="hint-content do--split-children">
+                    <p>
+                        Ahe is a coral atoll of 76 islands in the Tuamotu Archipelago. The only village is Tenukupara.
+                        <br />
+                        Polynesia, September 2024
+                    </p>
                 </div>
             </div>
 
