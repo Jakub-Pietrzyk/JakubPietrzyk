@@ -97,9 +97,33 @@ nav.side-nav a.active::after{ width: 30px;}
 
 #countries_cont h2 > span{
     color: royalblue;
-    /* color: white; */
     font-size: 110px;
 }
+
+#pins_cont{ position: relative; }
+
+#pins_map{
+    position: absolute;
+    top: 120px;    
+    width: calc(100% - 400px);
+    height: calc(100vh - 220px);
+    left: 200px;
+    border-radius: 15px;
+    z-index: 1;
+}
+
+.leaflet-popup-content a{
+    color: lightblue;
+    text-decoration: underline;
+    font-size: 14px;
+}
+
+.leaflet-popup-content a:hover{
+    transform: scale(1);
+}
+
+.leaflet-control-attribution{ display: none; }
+.leaflet-control-zoom{display: none;}
 
 @media screen and (max-width: 768px){
     nav.side-nav{
@@ -148,7 +172,18 @@ nav.side-nav a.active::after{ width: 30px;}
         bottom: 200px;
         left: 30px;
         font-size: 20px;
-        width: calc(100% - 60px);;
+        width: calc(100% - 60px);
         text-align: right;
+    }
+
+    #pins_map{
+        position: absolute;
+        top: 150px;    
+        /* width: calc(100% - 40px); */
+        width: 100%;
+        height: calc(100vh - 300px);
+        /* left: 20px; */
+        left: 0;
+        border-radius: 0;
     }
 }

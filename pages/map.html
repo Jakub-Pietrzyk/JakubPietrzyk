@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="../assets/map.css">
     <link rel="stylesheet" href="../assets/tooltip.css">
     <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <script src="https://d3js.org/d3.v6.min.js"></script>
     <script src="https://d3-geo-projection.github.io/d3-geo-projection.v2.min.js"></script>
     <script type="module" defer>
@@ -28,6 +29,7 @@
 </head>
 
 <body>
+
     <header>
         <a href="../index.html"><img src="../images/qubix_black.png" alt="Qubix logo" class="logo" /></a>
 
@@ -41,6 +43,7 @@
         </nav>
     </header>
 
+    
     <nav class="side-nav" id="side_nav">
         <ul>
             <li><a id="globe_link" class="maps-sidenav-link active" href="#" title="Globe" >Globe</a></li>
@@ -49,11 +52,14 @@
         </ul>
     </nav>
 
+
     <div id="map_content_wrapper">
+
 
         <div class="map-content" id="globe_cont">
             <svg id="globe"></svg>
         </div>
+
 
         <div class="map-content tooltip-parent" id="countries_cont">
             <div class="countries-bg"></div>
@@ -74,17 +80,26 @@
             <div id="countries_list"></div>
         </div>
 
-        <div class="map-content" id="pins_cont" style="background-color: green;"></div>
+
+        <div class="map-content" id="pins_cont">
+            <div id="pins_map"></div>
+        </div>
+
+
     </div>
     
+
     <footer>
         <a href="https://www.youtube.com/@qubix0157" target="_blank" title="YouTube" class="left-icon"><svg  xmlns="http://www.w3.org/2000/svg"  class="social-link"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-youtube"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M2 8a4 4 0 0 1 4 -4h12a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-12a4 4 0 0 1 -4 -4v-8z" /><path d="M10 9l5 3l-5 3z" /></svg></a>
         <p>&copy; 2025 Jakub Pietrzyk</p>
         <a href="https://www.instagram.com/bardzo_maly_czlowiek/" target="_blank" title="Instagram" class="right-icon"><svg  xmlns="http://www.w3.org/2000/svg"  class="social-link"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-instagram"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 8a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z" /><path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /><path d="M16.5 7.5v.01" /></svg></a>
     </footer>
     
+
     <script src="../scripts/globe.js"></script>
     <script src="../scripts/map_nav.js"></script>
     <script src="../scripts/countries_list.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="../scripts/pins_map.js"></script>
 </body>
 </html>
