@@ -133,13 +133,14 @@ nav.side-nav a.active::after{ width: 30px;}
         width: 100%;
     }
     
-    nav.side-nav ul{
-        flex-direction: row;
-    }
+    nav.side-nav ul{ flex-direction: row; }
+    nav.side-nav li{ flex: 0.33; }
         
     nav.side-nav a{
         font-size: 14px;
         position: relative;
+        width: fit-content;
+        margin: 0 auto
     }
 
     nav.side-nav a::after{
