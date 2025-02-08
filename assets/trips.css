@@ -1,0 +1,228 @@
+#sd_container {
+    position: absolute;
+    bottom: 120px;
+    left: calc(50% - 21px);
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+  
+.arrow {
+    position: relative;
+    width: 42px;
+    height: 16px;
+    opacity: 0;
+}
+
+.arrow::after, .arrow::before {
+    content: "";
+    width:21px;
+    height: 2px;
+    background-color: black;
+    border-radius: 2px;
+    display: inline-block;
+}
+
+.arrow::before { transform: rotate(45deg) translateX(25%); }
+.arrow::after { transform: rotate(-45deg) translateX(-25%); }
+
+.arrow:nth-child(1) {
+    top: -50px;
+    opacity: 1;
+    animation: arrow2 1s ease 0s infinite;
+}
+  
+.arrow:nth-child(2) {
+    top: -25px;
+    animation: arrow1 1s ease 0.25s infinite;
+}
+  
+  @keyframes arrow1 {
+    from {
+      opacity: 0;
+      top: -25px;
+    }
+    
+    to {
+      opacity: 0;
+      top: 0px;
+    }
+    
+    50% {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes arrow2 {
+    from {
+      opacity: 0;
+      top: -35px;
+    }
+    
+    to {
+      opacity: 0;
+      top: -10px;
+    }
+    
+    50% {
+      opacity: 1;
+    }
+  }
+
+.trips-top-bg {
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.90) 90%, rgba(255, 255, 255, 0.99) 100%), url('../images/trips.jpg');
+    /* background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.90) 90%, rgba(255, 255, 255, 0.99) 100%), url('../images/trips10.jpg'); */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center 50%;
+    /* background-position: center 30%; */
+
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+}
+
+#trips_content_wrapper{
+    position: absolute;
+    top:0;
+    left:0;
+    transition: top 1s ease-in-out;
+    width: 100vw;
+}
+
+.trips-white-cont {
+    background-color: white;
+    width: calc(100vw - 10px);
+    margin: 0 auto;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.trips-white-cont::-webkit-scrollbar {
+    width: 5px;
+    height: 7px;
+}
+.trips-white-cont::-webkit-scrollbar-track-piece {
+    background: white;
+}
+.trips-white-cont::-webkit-scrollbar-thumb {
+    background: lightgrey;
+    height: 8px;
+    border-radius: 7px;
+}
+
+.trips-content{
+    width: 90%;
+    margin: 0 auto;
+    max-width: 1200px;
+    padding-top: 50px;
+    padding-bottom: 100px;
+}
+
+.trips-content h2{
+    font-size: 50px;
+    margin-bottom: 80px;
+}
+
+.trips-content h6{
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 15px;
+    margin-left: 30px;
+}
+
+.trips-stack{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-bottom: 50px;
+}
+
+.trip-link{
+    display: inline-block;
+    margin: 10px;
+}
+.trip-link:hover{ transform: scale(1); }
+
+.trip-card{
+    width: 270px;
+    height: 350px;
+    overflow: hidden;
+    /* border-radius: 20px; */
+    position: relative;
+}
+
+.trip-card:hover .trip-card-bg{
+    transform: scale(1.1);
+}
+
+.trip-card > .trip-card-content{
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: calc(100% - 40px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.trip-card-content > strong{
+    font-size: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+    color: white;
+}
+
+.trip-card-content > p{
+    font-size: 14px;
+    margin: 0;
+    text-align: center;
+    color: white;
+}
+
+.trip-card > .trip-card-bg{    
+    position: absolute;
+    top:0;
+    left:0;    
+    z-index: 1;    
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+
+@media screen and (max-width: 768px){
+    .trips-top-bg > .tooltip.show-mobile.first{
+        display: flex;
+        left: unset !important;
+
+        right: 10% !important;
+        top: 40% !important;
+    }
+
+    .trips-top-bg > .tooltip.show-mobile.second{
+        display: flex;
+        right: unset !important;
+        top: 65% !important;
+        left: 10% !important;
+    }
+
+    .trips-content{
+        padding-top: 100px;
+    }
+
+    .trips-content h2{
+        font-size: 50px;
+        width: 5px;
+        white-space: break-spaces; 
+    }
+
+    .trips-stack{
+        justify-content: center;
+    }
+}

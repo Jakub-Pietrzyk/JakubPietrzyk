@@ -70,7 +70,9 @@ nav.side-nav a.active::after{ width: 30px;}
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center top;
-    opacity: 0.85;
+
+    opacity: 0;
+    animation: fadeIn 2s forwards;
 }
 
 #countries_cont > h2{

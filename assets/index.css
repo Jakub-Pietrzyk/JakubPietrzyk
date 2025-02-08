@@ -43,11 +43,11 @@ body{
 
 header{
     display: flex;
-    width: 100vw;
+    width: 100%;
     align-items: center;
     justify-content: space-between;
     padding-top: 20px;
-    z-index: 2;
+    z-index: 999;
     position: absolute;
     top:0;
     left:0;
@@ -80,6 +80,20 @@ a.active-page::before{
     width: 30px;
     height: 2px;
     background-color: black;
+    animation: expandWidth 1s forwards;
+}
+
+@keyframes expandWidth {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 30px;
+    }
+}
+
+a.active-page::before {
+    animation: expandWidth 0.4s forwards;
 }
 
 a:hover{
@@ -96,7 +110,7 @@ footer{
     bottom: 10px;
     left: 0;
     width: 100vw;
-    z-index: 2;
+    z-index: 999;
     display: flex;
     justify-content: space-between;
     align-items: center;
