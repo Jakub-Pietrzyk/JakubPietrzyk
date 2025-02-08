@@ -50,3 +50,6 @@ const emojisDisplay = async () => {
     const container = document.getElementById("countries_list");
     animateEmojis(container, emojis, 3000);
 }
+
+countCountries();
+emojisDisplay();

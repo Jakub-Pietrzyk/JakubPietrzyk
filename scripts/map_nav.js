@@ -11,7 +11,7 @@ const ready = function() {
         
         if (globeLink.classList.contains("active")) return;
 
-        wrapper.style.top = `0px`;
+        wrapper.style.top = `-100vh`;
         countriesLink.classList.remove("active");
         pinsLink.classList.remove("active");
         globeLink.classList.add("active");        
@@ -22,7 +22,7 @@ const ready = function() {
         
         if (countriesLink.classList.contains("active")) return;
 
-        wrapper.style.top = `-100vh`;
+        wrapper.style.top = `0px`;
         globeLink.classList.remove("active");
         pinsLink.classList.remove("active");
         countriesLink.classList.add("active");
