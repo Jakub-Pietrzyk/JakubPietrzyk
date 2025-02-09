@@ -74,9 +74,7 @@
     height: 100vh;
     z-index: 1;
     position: relative;
-
-    /* background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.90) 90%, rgba(255, 255, 255, 0.99) 100%), url('../images/trips10.jpg'); */
-    /* background-position: center 30%; */
+    overflow: hidden;
 }
 
 .trips-top-banner > .trips-bg{
@@ -168,7 +166,6 @@
     width: 270px;
     height: 350px;
     overflow: hidden;
-    /* border-radius: 20px; */
     position: relative;
 }
 
