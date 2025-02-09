@@ -1,0 +1,136 @@
+body.post-body{
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.post-page{
+    position: relative;
+    width: 100vw;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.post-page > .post-banner{
+    width: 100%;
+    height: 60vh;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;  
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    opacity: 0;
+    animation: fadeIn 2s forwards; 
+    overflow: hidden;
+}
+
+.post-page > .post-banner::after{
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+}
+
+.post-page > .post-content{
+    width: 90%;
+    margin: 0 auto;
+    max-width: 900px;
+    padding-top: calc(60vh - 110px);
+    pointer-events: none;
+    padding-bottom: 100px;
+    z-index: 1;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.post-page .post-date{
+    text-align: center;
+    font-size: 14px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.post-page h1{
+    margin: 0;
+    text-align: center;
+    font-size: 70px;
+    margin-bottom: 100px;
+}
+
+.post-page p, .post-page li{
+    font-size: 16px;
+    line-height: 30px;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+.post-page li{
+    padding: 10px;
+}
+
+.post-page h6{
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+.post-image{
+    width: 100%;
+    max-width: 700px;
+    height: 400px;
+    margin: 0 auto;
+    display: block;
+    object-fit: cover;
+    margin-bottom: 10px;
+    object-position: center;
+}
+
+.post-img-label{
+    display: block;
+    font-size: 14px;
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+
+@media screen and (max-width: 768px){
+    .post-page h1{
+        font-size: 50px;
+        margin-bottom: 50px;
+    }
+
+    .post-page p, .post-page li{
+        font-size: 14px;
+        line-height: 27px;
+    }
+
+    .post-page li{ padding: 5px; }
+
+    .post-page h6{
+        font-size: 16px;
+        font-weight: 700;
+        margin: 0;
+        margin-bottom: 20px;
+    }
+
+    .post-page > .post-content{
+        width: calc(100% - 40px);
+    }
+
+    .tooltip.post-1-banner-tooltip{
+        display:flex;
+        left: unset !important;
+        right: 10% !important;
+        top: 60% !important;
+    }
+}
