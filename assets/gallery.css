@@ -45,6 +45,6 @@
     }
 
     .gallery-img{
-        width: calc(100% - 10px);
+        width: calc(50% - 10px);
     }
 }
