@@ -1,0 +1,50 @@
+.trips-top-banner > .trips-bg.gallery-bg{
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 65%, rgba(255, 255, 255, 0.90) 90%, rgba(255, 255, 255, 0.99) 100%), url('../images/gallery.jpg');
+    background-position: center;
+}
+
+.photos-stack{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-bottom: 50px;
+}
+
+.gallery-img{
+    width: calc(33.333% - 10px);
+    margin: 5px;
+    position: relative;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+}
+
+.gallery-img > img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+.gallery-img:hover > img{
+    transform: scale(1.1);
+}
+
+.gallery-body .trips-content h6{ margin-left: 5px; }
+
+
+@media screen and (max-width: 768px){
+    .gallery-body .trips-top-banner > .tooltip.show-mobile.first{
+        display: flex;
+        top: 43% !important;
+    }
+
+    .gallery-body .trips-top-banner > .tooltip.show-mobile.second{
+        display: flex;
+        top: 72% !important;
+    }
+
+    .gallery-img{
+        width: calc(100% - 10px);
+    }
+}
