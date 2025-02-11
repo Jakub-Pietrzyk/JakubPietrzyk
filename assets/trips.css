@@ -1,10 +1,15 @@
 #sd_container {
     position: absolute;
-    bottom: 120px;
-    left: calc(50% - 21px);
+    bottom: 0;
     transform: translateY(-50%);
     cursor: pointer;
     z-index: 2;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 140px;
 }
   
 .arrow {
