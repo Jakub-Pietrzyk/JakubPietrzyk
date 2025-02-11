@@ -64,4 +64,8 @@
         width: calc(100% - 40px);
         height: fit-content;
     }
+
+    .post-card > .blog-title{
+        text-decoration: underline;
+    }
 }
