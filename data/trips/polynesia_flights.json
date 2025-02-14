@@ -1,0 +1,10 @@
+{
+    "trace": [
+        {"country": "Poland", "coords": [19.935620233845704, 50.056929910684254], "name": "Kraków", "zoom": 300},
+        {"country": "France", "coords": [2.3483915, 48.8534951], "name": "Paris", "zoom": 230},
+        {"country": "USA", "coords": [-122.45059192538275, 37.764933943336274], "name": "San Francisco", "zoom": 180},
+        {"country": "Polynesia", "coords": [-149.4562028063994, -17.64697366907951], "name": "Tahiti", "zoom": 450},
+        {"country": "Polynesia", "coords": [-146.35510039421024, -14.53961207559765], "name": "Ahe", "zoom": 450}
+    ]
+    
+}
