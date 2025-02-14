@@ -110,6 +110,10 @@
     width: 100vw;
 }
 
+.wrapped-top{
+    top: -100vh !important;
+}
+
 .trips-white-cont {
     background-color: white;
     width: calc(100vw - 10px);
