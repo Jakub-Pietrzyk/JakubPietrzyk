@@ -122,7 +122,7 @@ async function drawGlobe() {
                 .tween("render", () => t => {
                     projection.rotate(iv(1)); // Ensure final rotation is set
                     projection.scale(zoom * (isMobile ? 0.75 : 1)); // Ensure final scale is set
-                    render(country, {type: "LineString", coordinates: [ip(1), p2]}, {name, coords});
+                    render(country, {type: "LineString", coordinates: [ip(t), p2]}, {name, coords});
                 })
                 .end();
             
