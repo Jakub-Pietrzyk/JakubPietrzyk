@@ -36,7 +36,7 @@
         {"lat": 38.70596722108323, "lon": -9.141121942918716, "popup_content": "Lisbon, Jul 2024"},
         {"lat": 41.38503659763612, "lon": 2.175419882106624, "popup_content": "Barcelona, Jan 2022"},
         {"lat": 40.84217519759834, "lon": 14.248800491608215, "popup_content": "Naples, Mar 2023"},
-        {"lat": 48.64523893986661, "lon": -2.0193377120798583, "popup_content": "Saint-Malo, Sep 2024"},
+        {"lat": 48.64523893986661, "lon": -2.0193377120798583, "popup_content": "Saint-Malo, Sep 2024<br/><a href='../pages/trips/northwest_france.html'>Link<a>"},
         {"lat": 33.794375809415364, "lon": 10.856435458848557, "popup_content": "Djerba, Jan 2023"},
         {"lat": 36.802621107708916, "lon": 10.188691439361723, "popup_content": "Tunis, Jan 2023"},
         {"lat": 45.31580005057772, "lon": 13.56055891693396, "popup_content": "Novigrad, Aug 2021"},
