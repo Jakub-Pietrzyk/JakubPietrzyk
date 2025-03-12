@@ -49,6 +49,13 @@
         {"lat": 48.22051369775374, "lon": 16.378707869732693, "popup_content": "Vienna, May 2022"},
         {"lat": 50.08370849345881, "lon": 14.420956537568937, "popup_content": "Prague, Sep 2021/May 2023"},
         {"lat": 48.3216823, "lon": 21.5655524, "popup_content": "Sárospatak"},
-        {"lat": 41.31598943257265, "lon": 19.44991972420871, "popup_content": "Durres, Jan 2024"}
+        {"lat": 41.31598943257265, "lon": 19.44991972420871, "popup_content": "Durres, Jan 2024"},
+        {"lat": -31.9558933, "lon": 115.8605855, "popup_content": "Perth, Feb 2025"},
+        {"lat": -28.774346100006515, "lon": 114.60995381080129, "popup_content": "Geraldton, Feb 2025"},
+        {"lat": -25.795797294276973, "lon": 113.71964595860344, "popup_content": "Monkey Mia, Feb 2025"},
+        {"lat": -23.1426725152786, "lon": 113.77247669772484, "popup_content": "Coral Bay, Feb 2025"},
+        {"lat": 1.357107, "lon": 103.8194992, "popup_content": "Singapore, Feb 2025"},
+        {"lat": 3.1526589, "lon": 101.7022205, "popup_content": "Kuala Lumpur, Mar 2025"},
+        {"lat": 4.3822684, "lon": 102.4017098, "popup_content": "Taman Negara, Mar 2025"}
     ]
 }
