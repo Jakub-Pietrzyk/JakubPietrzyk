@@ -10,7 +10,7 @@
 .gallery-cont{
     width: 100vw;
     height: calc(100vh - 300px);
-    margin-top: 150px;
+    margin-top: 170px;
 
     display: flex;
     flex-direction: column;
@@ -47,4 +47,26 @@
 }
 .gallery-img:hover > img{
     transform: scale(1.04);
+}
+
+@media screen and (max-width: 768px){
+    .gallery-cont{
+        height: calc(100vh - 250px);
+        margin-top: 160px;
+    }
+
+    .gallery-img{
+        width: 230px;
+        margin: 3px;
+    }
+    
+    .gallery-img.vert{
+        aspect-ratio: 9/16;
+        width: 148px;
+    }
+    
+    .gallery-img.sq{
+        aspect-ratio: 1.15/1;
+        width: 148px;
+    }
 }
