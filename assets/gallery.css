@@ -17,6 +17,8 @@
     flex-wrap: wrap;
 
     overflow-x: scroll;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;
 }
 
 .gallery-cont::-webkit-scrollbar { display: none; }
@@ -56,17 +58,17 @@
     }
 
     .gallery-img{
-        width: 230px;
+        width: 270px;
         margin: 3px;
     }
     
     .gallery-img.vert{
         aspect-ratio: 9/16;
-        width: 148px;
+        width: 175px;
     }
     
     .gallery-img.sq{
         aspect-ratio: 1.15/1;
-        width: 148px;
+        width: 175px;
     }
 }
