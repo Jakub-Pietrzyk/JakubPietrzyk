@@ -96,10 +96,11 @@ nav.side-nav a.active::after{ width: 30px;}
     margin: 0;
     position: absolute;
     bottom: 120px;
-    left: 120px;
+    right: 120px;
     font-size: 25px;
     width: 800px;
     font-family: "Twemoji Country Flags", "Roboto Mono", serif;
+    text-align: right;
 }
 
 #countries_cont h2 > span{

@@ -45,7 +45,7 @@
     </header>
 
     
-    <nav class="side-nav" id="side_nav">
+    <nav class="side-nav white" id="side_nav">
         <ul>
             <li><a id="countries_link" class="maps-sidenav-link active" href="#" title="Countries">Countries</a></li>
             <li><a id="globe_link" class="maps-sidenav-link" href="#" title="Globe" >Globe</a></li>
@@ -57,21 +57,31 @@
     <div id="map_content_wrapper">
 
         <div class="map-content tooltip-parent" id="countries_cont">
-            <div class="countries-bg"></div>
+            <div class="Background countries-bg">
+                <canvas class="Background-canvas"></canvas>
+            </div>
 
-            <div class="tooltip darker" data-position="4" style="left: 67%; top: 36%;">
+            <div class="tooltip show-mobile left" data-position="4" style="right: 20%; top: 30%;">
                 <span class="hint-radius"></span>
                 <span class="hint-dot"></span>
                 <div class="hint-content do--split-children">
                     <p>
-                        Ahe is a coral atoll of 76 islands in the Tuamotu Archipelago. The only village is Tenukupara.
-                        <br />
-                        Polynesia, September 2024
+                        Moorea is a sister island of Tahiti. It only takes about 30 minutes by ferry to get there.
                     </p>
                 </div>
             </div>
 
-            <h2 id="countries_title"><span>26</span> and still counting ...</h2>
+            <div class="tooltip show-mobile" data-position="4" style="left: 30%; top: 60%;">
+                <span class="hint-radius"></span>
+                <span class="hint-dot"></span>
+                <div class="hint-content do--split-children">
+                    <p>
+                        Temae is the most stunning beach on the entire island. The water here is crystal clear and vibrant blue.
+                    </p>
+                </div>
+            </div>
+
+            <h2 id="countries_title"><span></span> and still counting ...</h2>
             <div id="countries_list"></div>
         </div>
 
@@ -96,7 +106,7 @@
     </footer>
     
 
-    <script src="../scripts/moving_bg.js"></script>
+	<script src="../heat_distortion/map/water.js"></script>
     <script src="../scripts/countries_list.js"></script>
     <script src="../scripts/map_nav.js"></script>
     <script src="../scripts/globe.js"></script>

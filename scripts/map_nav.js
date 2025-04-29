@@ -14,7 +14,8 @@ const ready = function() {
         wrapper.style.top = `-100vh`;
         countriesLink.classList.remove("active");
         pinsLink.classList.remove("active");
-        globeLink.classList.add("active");        
+        globeLink.classList.add("active");     
+        sideNav.classList.remove("white");   
     });
 
     countriesLink.addEventListener("click", (e) => {
@@ -26,6 +27,7 @@ const ready = function() {
         globeLink.classList.remove("active");
         pinsLink.classList.remove("active");
         countriesLink.classList.add("active");
+        sideNav.classList.add("white");
         countCountries();
         emojisDisplay();
     });
@@ -39,6 +41,7 @@ const ready = function() {
         globeLink.classList.remove("active");
         countriesLink.classList.remove("active");
         pinsLink.classList.add("active");
+        sideNav.classList.remove("white");
     });
 }
 
