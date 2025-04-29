@@ -20,26 +20,14 @@ body{
 }
 
 .background{
-    --x: -10px;
-    --y: -10px;
-
     position: fixed !important;
     z-index: 1;
-    left: var(--x);
-    top: var(--y);
-
-    width: calc(100vw + 20px);
-    height: calc(100vh + 20px);
-
-    background-image: url('../images/index_background.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+    width: 100vw;
+    height: 100vh;
 
     opacity: 0;
     animation: fadeIn 2s forwards;
 }
-
 
 header{
     display: flex;
