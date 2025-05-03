@@ -116,12 +116,6 @@
 		  haze.gl.createUniform('2f', 'mouse', -curve(-1 + (event.pageX + 1.7*window.innerWidth) / window.innerWidth * 0.5), -curve(-1 + (event.pageY + 1.7*window.innerHeight) / window.innerHeight * 0.5));
 		}
 	  });
-	  
-	  // window.addEventListener('devicemotion', function (event) {
-	  //   if (isTouchDevice) {
-	  //     haze.gl.createUniform('2f', 'mouse', curve(smoothX(-event.accelerationIncludingGravity.x / 10)) * 12, curve(smoothY(-event.accelerationIncludingGravity.y / 10)) * 3);
-	  //   }
-	  // });
   
 	  window.addEventListener('devicemotion', function (event) {
 		  if (isTouchDevice) {
@@ -136,58 +130,6 @@
 			);
 		  }
 		});
-	
-	// var parallaxPos = {
-	//   _x: 0,
-	//   _y: 0,
-	//   _willUpdate: false,
-	//   get x() {
-	//     return this._x;
-	//   },
-	//   set x(v) {
-	//     this._x = v;
-	//     this.updatePos();
-	//   },
-	//   get y() {
-	//     return this._y;
-	//   },
-	//   set y(v) {
-	//     this._y = v;
-	//     this.updatePos();
-	//   },
-	//   updatePos: function updatePos() {
-	//     var _this = this;
-	
-	//     if (this._willUpdate) return;
-	//     this._willUpdate = true;
-	
-	//     requestAnimationFrame(function () {
-	//       _this._willUpdate = false;
-	//       haze.gl.createUniform('2f', 'mouse', -(-1 + _this.x), -(-1 + _this.y));
-	//     });
-	//   }
-	// };
-	// window.addEventListener('mousemove', function (event) {
-	//   if (!isTouchDevice) {
-	//     _gsap2.default.to(parallaxPos, 1, {
-	//       x: event.pageX / window.innerWidth * 2,
-	//       y: event.pageY / window.innerHeight * 2
-	//     });
-	//   }
-	// });
-
-	// window.addEventListener('devicemotion', function (event) {
-	// 	if (isTouchDevice) {
-	// 	  const adjustedX = -event.accelerationIncludingGravity.x / 80; // Increased divisor for less sensitivity
-	// 	  const adjustedY = (-event.accelerationIncludingGravity.y + 9.8) / 80; // Increased divisor for less sensitivity
-
-	// 	  _gsap2.default.to(parallaxPos, 1, {
-	// 		x: smoothX(adjustedX) * 1.5,
-	// 		y: smoothY(adjustedY) * 0.375
-	// 	  });
-	// 	}
-	//   });
-	
 
 	window.addEventListener('resize', updateSize);
 	function updateSize() {
