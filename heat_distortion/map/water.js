@@ -137,37 +137,18 @@
 	
 	    requestAnimationFrame(function () {
 	      _this._willUpdate = false;
-	      haze.gl.createUniform('2f', 'mouse', -(-1 + _this.x), -(-1 + _this.y));
+	      haze.gl.createUniform('2f', 'mouse', -(-1 + _this.x * 2), -(-1 + _this.y * 2));
 	    });
 	  }
 	};
 	window.addEventListener('mousemove', function (event) {
 	  if (!isTouchDevice) {
 	    _gsap2.default.to(parallaxPos, 1, {
-	      x: event.pageX / window.innerWidth * 2,
-	      y: event.pageY / window.innerHeight * 2
+	      x: event.pageX / window.innerWidth,
+	      y: event.pageY / window.innerHeight
 	    });
 	  }
 	});
-
-	window.addEventListener('devicemotion', function (event) {
-		if (isTouchDevice) {
-		  const adjustedX = -event.accelerationIncludingGravity.x / 80; // Increased divisor for less sensitivity
-		  const adjustedY = (-event.accelerationIncludingGravity.y + 9.8) / 80; // Increased divisor for less sensitivity
-	  
-		//   haze.gl.createUniform(
-		// 	'2f',
-		// 	'mouse',
-		// 	curve(smoothX(adjustedX)) * 1.5, // Reduced multiplier
-		// 	curve(smoothY(adjustedY)) * 0.375 // Reduced multiplier
-		//   );
-
-		  _gsap2.default.to(parallaxPos, 1, {
-			x: smoothX(adjustedX) * 1.5,
-			y: smoothY(adjustedY) * 0.375
-		  });
-		}
-	  });
 	
 
 	window.addEventListener('resize', updateSize);

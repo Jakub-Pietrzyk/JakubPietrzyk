@@ -124,8 +124,24 @@
 	//   }
 	// });
 
+	// window.addEventListener('devicemotion', function (event) {
+	// 	if (isTouchDevice) {
+	// 	  // Adjust the baseline for vertical orientation
+	// 	  const adjustedX = -event.accelerationIncludingGravity.x / 10;
+	// 	  const adjustedY = (-event.accelerationIncludingGravity.y + 9.8) / 10; // 9.8 accounts for gravity in vertical position
+	  
+	// 	  haze.gl.createUniform(
+	// 		'2f',
+	// 		'mouse',
+	// 		curve(smoothX(adjustedX)) * 12,
+	// 		curve(smoothY(adjustedY)) * 3
+	// 	  );
+	// 	}
+	//   });
+
 	window.addEventListener('devicemotion', function (event) {
 		if (isTouchDevice) {
+		  // Adjust the baseline for vertical orientation
 		  const adjustedX = -event.accelerationIncludingGravity.x / 80; // Increased divisor for less sensitivity
 		  const adjustedY = (-event.accelerationIncludingGravity.y + 9.8) / 80; // Increased divisor for less sensitivity
 	  
