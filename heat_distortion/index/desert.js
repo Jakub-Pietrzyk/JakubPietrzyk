@@ -114,15 +114,24 @@
 	
 	window.addEventListener('mousemove', function (event) {
 	  if (!isTouchDevice) {
-	    haze.gl.createUniform('2f', 'mouse', -curve(-1 + event.pageX / window.innerWidth * 2), -curve(-1 + event.pageY / window.innerHeight * 2));
+	    haze.gl.createUniform('2f', 'mouse', -curve(-1 + (event.pageX + 1.7*window.innerWidth) / window.innerWidth * 0.5), -curve(-1 + (event.pageY + 1.7*window.innerHeight) / window.innerHeight * 0.5));
 	  }
 	});
 	
 	window.addEventListener('devicemotion', function (event) {
-	  if (isTouchDevice) {
-	    haze.gl.createUniform('2f', 'mouse', curve(smoothX(-event.accelerationIncludingGravity.x / 10)) * 12, curve(smoothY(-event.accelerationIncludingGravity.y / 10)) * 3);
-	  }
-	});
+		if (isTouchDevice) {
+		  // Adjust the baseline for vertical orientation
+		  const adjustedX = -event.accelerationIncludingGravity.x / 10;
+		  const adjustedY = (-event.accelerationIncludingGravity.y + 9.8) / 10; // 9.8 accounts for gravity in vertical position
+	  
+		  haze.gl.createUniform(
+			'2f',
+			'mouse',
+			curve(smoothX(adjustedX)) * 12,
+			curve(smoothY(adjustedY)) * 3
+		  );
+		}
+	  });
 	
 	haze.gl.createUniform('1i', 'noiseSize', 256);
 	
@@ -18275,8 +18284,8 @@
 		vec2 intensity = vec2(2.0, 1.0) * pixel();
 	
 		vec2 waves = vec2(
-			wave(pos.y, 190.0, 0.4),
-			wave(pos.x, 100.0, 0.45)
+			wave(pos.y, 190.0, 0.35),
+			wave(pos.x, 100.0, 0.40)
 		);
 	
 		return pos + (waves * intensity * (masked ? mask : 1.0));

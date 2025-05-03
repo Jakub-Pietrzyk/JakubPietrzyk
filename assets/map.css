@@ -160,6 +160,9 @@ nav.side-nav a.active::after{ width: 30px;}
     
     nav.side-nav a.active::after{ width: 40px;}
 
+    nav.side-nav.white a{ color: black; }
+    nav.side-nav.white a::after{ background-color: black; }
+
     #countries_cont .countries-bg{
         background-position: 40% top;
     }
