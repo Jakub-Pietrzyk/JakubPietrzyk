@@ -117,8 +117,8 @@
 		}
 	  });
   
-	  window.addEventListener('devicemotion', function (event) {
-		  if (isTouchDevice) {
+	  handleDeviceMotion = function (event) {
+		if (isTouchDevice) {
 			const adjustedX = -event.accelerationIncludingGravity.x / 80; // Increased divisor for less sensitivity
 			const adjustedY = (-event.accelerationIncludingGravity.y + 9.8) / 80; // Increased divisor for less sensitivity
 		
@@ -129,7 +129,21 @@
 			  curve(smoothY(adjustedY)) * 0.375 // Reduced multiplier
 			);
 		  }
-		});
+	};
+
+	if (typeof DeviceMotionEvent.requestPermission === 'function') {
+		DeviceMotionEvent.requestPermission()
+			.then(permissionState => {
+				if (permissionState === 'granted') {
+					// Add the devicemotion event listener
+					window.addEventListener('devicemotion', handleDeviceMotion);
+				}
+			})
+			.catch(console.error);
+	} else {
+		// Add the devicemotion event listener for non-iOS devices
+		window.addEventListener('devicemotion', handleDeviceMotion);
+	}
 
 	window.addEventListener('resize', updateSize);
 	function updateSize() {

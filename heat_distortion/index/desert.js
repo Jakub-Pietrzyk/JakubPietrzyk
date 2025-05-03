@@ -118,19 +118,47 @@
 	  }
 	});
 
-	window.addEventListener('devicemotion', function (event) {
+	handleDeviceMotion = function (event) {
 		if (isTouchDevice) {
-		  const adjustedX = -event.accelerationIncludingGravity.x / 80; // Increased divisor for less sensitivity
-		  const adjustedY = (-event.accelerationIncludingGravity.y + 9.8) / 80; // Increased divisor for less sensitivity
+			const adjustedX = -event.accelerationIncludingGravity.x / 80; // Increased divisor for less sensitivity
+			const adjustedY = (-event.accelerationIncludingGravity.y + 9.8) / 80; // Increased divisor for less sensitivity
+		
+			haze.gl.createUniform(
+			  '2f',
+			  'mouse',
+			  curve(smoothX(adjustedX)) * 1.5, // Reduced multiplier
+			  curve(smoothY(adjustedY)) * 0.375 // Reduced multiplier
+			);
+		  }
+	};
+
+	if (typeof DeviceMotionEvent.requestPermission === 'function') {
+		DeviceMotionEvent.requestPermission()
+			.then(permissionState => {
+				if (permissionState === 'granted') {
+					// Add the devicemotion event listener
+					window.addEventListener('devicemotion', handleDeviceMotion);
+				}
+			})
+			.catch(console.error);
+	} else {
+		// Add the devicemotion event listener for non-iOS devices
+		window.addEventListener('devicemotion', handleDeviceMotion);
+	}
+
+	// window.addEventListener('devicemotion', function (event) {
+	// 	if (isTouchDevice) {
+	// 	  const adjustedX = -event.accelerationIncludingGravity.x / 80; // Increased divisor for less sensitivity
+	// 	  const adjustedY = (-event.accelerationIncludingGravity.y + 9.8) / 80; // Increased divisor for less sensitivity
 	  
-		  haze.gl.createUniform(
-			'2f',
-			'mouse',
-			curve(smoothX(adjustedX)) * 1.5, // Reduced multiplier
-			curve(smoothY(adjustedY)) * 0.375 // Reduced multiplier
-		  );
-		}
-	  });
+	// 	  haze.gl.createUniform(
+	// 		'2f',
+	// 		'mouse',
+	// 		curve(smoothX(adjustedX)) * 1.5, // Reduced multiplier
+	// 		curve(smoothY(adjustedY)) * 0.375 // Reduced multiplier
+	// 	  );
+	// 	}
+	//   });
 	
 	haze.gl.createUniform('1i', 'noiseSize', 256);
 	
