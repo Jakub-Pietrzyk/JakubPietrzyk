@@ -142,14 +142,14 @@
 	window.addEventListener('devicemotion', function (event) {
 		if (isTouchDevice) {
 		  // Adjust the baseline for vertical orientation
-		  const adjustedX = -event.accelerationIncludingGravity.x / 20; // Reduced sensitivity
-		  const adjustedY = (-event.accelerationIncludingGravity.y + 9.8) / 20; // Reduced sensitivity
+		  const adjustedX = -event.accelerationIncludingGravity.x / 40; // Further reduced sensitivity
+		  const adjustedY = (-event.accelerationIncludingGravity.y + 9.8) / 40; // Further reduced sensitivity
 	  
 		  haze.gl.createUniform(
 			'2f',
 			'mouse',
-			curve(smoothX(adjustedX)) * 6, // Reduced multiplier
-			curve(smoothY(adjustedY)) * 1.5 // Reduced multiplier
+			curve(smoothX(adjustedX)) * 3, // Further reduced multiplier
+			curve(smoothY(adjustedY)) * 0.75 // Further reduced multiplier
 		  );
 		}
 	  });
