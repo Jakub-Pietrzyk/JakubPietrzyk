@@ -61,13 +61,23 @@ nav.side-nav a.active::after{ width: 30px;}
 }
 
 #countries_cont .countries-bg{
-    position: fixed !important;
-    z-index: 1;
-    width: 100vw;
-    height: 100vh;
+    position: absolute;
+    --x: -10px;
+    --y: -10px;
+
+    left: var(--x);
+    top: var(--y);
+    width: calc(100% + 20px);
+    height: calc(100% + 20px);
+    z-index: 1;  
+
+    background-image: url('../images/countries.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
 
     opacity: 0;
-    animation: fadeIn 2s forwards;
+    animation: fadeIn 2s forwards;    
 }
 
 #countries_cont > h2{
