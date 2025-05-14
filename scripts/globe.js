@@ -49,32 +49,21 @@ async function drawGlobe() {
     }));
 
     if (window.DeviceOrientationEvent) {
-        window.addEventListener("deviceorientation", function (event) {
-            projection.rotate([
-                rotate[0] + event.beta * k,
-                rotate[1] - event.gamma * k
-            ]);
-            path = d3.geoPath().projection(projection);
-            svg.selectAll("path").attr("d", path);
-        }, true);
-    } else if (window.DeviceMotionEvent) {
-        window.addEventListener('devicemotion', function (event) {
-            projection.rotate([
-                rotate[0] + event.acceleration.x * 2 * k,
-                rotate[1] - event.acceleration.y * 2 * k
-            ]);
-            path = d3.geoPath().projection(projection);
-            svg.selectAll("path").attr("d", path);
-        }, true);
-    } else {
-        window.addEventListener("MozOrientation", function (orientation) {
-            projection.rotate([
-                rotate[0] + orientation.x * 50 * k,
-                rotate[1] - orientation.y * 50 * k
-            ]);
-            path = d3.geoPath().projection(projection);
-            svg.selectAll("path").attr("d", path);
-        }, true);
+        window.addEventListener('deviceorientation', function(event) {
+            // event.beta: front-back tilt [-180,180], event.gamma: left-right tilt [-90,90]
+            // We'll use gamma for left-right rotation, beta for up-down (if desired)
+            if (projection) {
+                // Map device orientation to globe rotation
+                // You may need to adjust the multipliers for sensitivity
+                const gamma = event.gamma || 0; // left-right
+                const beta = event.beta || 0;   // front-back
+
+                // Example: rotate horizontally with gamma, vertically with beta
+                projection.rotate([gamma * 1.5, -30 + beta * 0.5]);
+                const path = d3.geoPath().projection(projection);
+                svg.selectAll("path").attr("d", path);
+            }
+        });
     }
 
     let map = svg.append("g");
