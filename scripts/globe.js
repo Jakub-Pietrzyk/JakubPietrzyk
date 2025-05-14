@@ -71,26 +71,40 @@ async function drawGlobe() {
         .style('stroke-width', 0.3)
         .style("opacity", 0.8);
 
-    if(isTouchDevice){
-        if (window.DeviceOrientationEvent) {
-            window.addEventListener('deviceorientation', function(event) {
-                // event.beta: front-back tilt [-180,180], event.gamma: left-right tilt [-90,90]
-                // We'll use gamma for left-right rotation, beta for up-down (if desired)
-                if (projection) {
-                    const rotate = projection.rotate();
-                    const gamma = event.gamma || 0; // left-right
-                    const beta = event.beta || 0;   // front-back
+    // if(isTouchDevice){
+    //     if (window.DeviceOrientationEvent) {
+    //         window.addEventListener('deviceorientation', function(event) {
+    //             // event.beta: front-back tilt [-180,180], event.gamma: left-right tilt [-90,90]
+    //             // We'll use gamma for left-right rotation, beta for up-down (if desired)
+    //             if (projection) {
+    //                 const rotate = projection.rotate();
+    //                 const gamma = event.gamma || 0; // left-right
+    //                 const beta = event.beta || 0;   // front-back
                     
-                    // Example: rotate horizontally with gamma, vertically with beta
-                    projection.rotate([rotate[0] + gamma * 1, rotate[1] + -30 + beta * 0.2]);
-                    const path = d3.geoPath().projection(projection);
-                    svg.selectAll("path").attr("d", path);
-                }
-            });
-        }
-    } else {
-        // Optional rotate
-        timer = d3.timer(function(elapsed) {
+    //                 // Example: rotate horizontally with gamma, vertically with beta
+    //                 projection.rotate([rotate[0] + gamma * 1, rotate[1] + -30 + beta * 0.2]);
+    //                 const path = d3.geoPath().projection(projection);
+    //                 svg.selectAll("path").attr("d", path);
+    //             }
+    //         });
+    //     }
+    // } else {
+    //     // Optional rotate
+    //     timer = d3.timer(function(elapsed) {
+    //         if (autoRotate) {
+    //             const rotate = projection.rotate();
+    //             const k = sensitivity / projection.scale();
+    //             projection.rotate([
+    //                 rotate[0] - 1 * k,
+    //                 rotate[1]
+    //             ]);
+    //             path = d3.geoPath().projection(projection);
+    //             svg.selectAll("path").attr("d", path);
+    //         }
+    //     }, 200);
+    // }
+
+    timer = d3.timer(function(elapsed) {
             if (autoRotate) {
                 const rotate = projection.rotate();
                 const k = sensitivity / projection.scale();
@@ -101,8 +115,7 @@ async function drawGlobe() {
                 path = d3.geoPath().projection(projection);
                 svg.selectAll("path").attr("d", path);
             }
-        }, 200);
-    }
+    }, 200);
 }
 
 drawGlobe();
