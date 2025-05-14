@@ -48,6 +48,18 @@ async function drawGlobe() {
         svg.selectAll("path").attr("d", path);
     }));
 
+    window.addEventListener('devicemotion', function (event) {
+		const adjustedX = -event.accelerationIncludingGravity.x
+		const adjustedY = -event.accelerationIncludingGravity.y + 9.8
+	  
+		projection.rotate([
+            rotate[0] + adjustedX * k,
+            rotate[1] - adjustedY * k
+        ]);
+        path = d3.geoPath().projection(projection);
+        svg.selectAll("path").attr("d", path);
+	});
+
     let map = svg.append("g");
 
     map.append("g")
