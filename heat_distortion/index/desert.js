@@ -118,19 +118,35 @@
 	  }
 	});
 
-	window.addEventListener('devicemotion', function (event) {
-		if (isTouchDevice) {
-		  const adjustedX = -event.accelerationIncludingGravity.x / 80; // Increased divisor for less sensitivity
-		  const adjustedY = (-event.accelerationIncludingGravity.y + 9.8) / 80; // Increased divisor for less sensitivity
+	// window.addEventListener('devicemotion', function (event) {
+		// if (isTouchDevice) {
+		//   const adjustedX = -event.accelerationIncludingGravity.x / 80; // Increased divisor for less sensitivity
+		//   const adjustedY = (-event.accelerationIncludingGravity.y + 9.8) / 80; // Increased divisor for less sensitivity
 	  
-		  haze.gl.createUniform(
-			'2f',
-			'mouse',
-			curve(smoothX(adjustedX)) * 1.5, // Reduced multiplier
-			curve(smoothY(adjustedY)) * 0.375 // Reduced multiplier
-		  );
-		}
-	  });
+		//   haze.gl.createUniform(
+		// 	'2f',
+		// 	'mouse',
+		// 	curve(smoothX(adjustedX)) * 1.5, // Reduced multiplier
+		// 	curve(smoothY(adjustedY)) * 0.375 // Reduced multiplier
+		//   );
+		// }
+	//   });
+
+	if (window.DeviceOrientationEvent) {
+		window.addEventListener('deviceorientation', function(event) {
+			if (isTouchDevice && projection) {
+				const adjustedX = (-event.gamma || 0) / 80; // Increased divisor for less sensitivity
+				const adjustedY = ((-event.beta || 0) + 9.8) / 80; // Increased divisor for less sensitivity
+			
+				haze.gl.createUniform(
+					'2f',
+					'mouse',
+					curve(smoothX(adjustedX)) * 1.5, // Reduced multiplier
+					curve(smoothY(adjustedY)) * 0.375 // Reduced multiplier
+				);
+			}
+		});
+	}
 	
 	haze.gl.createUniform('1i', 'noiseSize', 256);
 	

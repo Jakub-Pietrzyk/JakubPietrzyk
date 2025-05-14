@@ -48,24 +48,6 @@ async function drawGlobe() {
         svg.selectAll("path").attr("d", path);
     }));
 
-    if (window.DeviceOrientationEvent) {
-        window.addEventListener('deviceorientation', function(event) {
-            // event.beta: front-back tilt [-180,180], event.gamma: left-right tilt [-90,90]
-            // We'll use gamma for left-right rotation, beta for up-down (if desired)
-            if (projection) {
-                // Map device orientation to globe rotation
-                // You may need to adjust the multipliers for sensitivity
-                const gamma = event.gamma || 0; // left-right
-                const beta = event.beta || 0;   // front-back
-
-                // Example: rotate horizontally with gamma, vertically with beta
-                projection.rotate([gamma * 1.5, -30 + beta * 0.5]);
-                const path = d3.geoPath().projection(projection);
-                svg.selectAll("path").attr("d", path);
-            }
-        });
-    }
-
     let map = svg.append("g");
 
     map.append("g")
