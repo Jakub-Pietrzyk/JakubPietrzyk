@@ -48,17 +48,34 @@ async function drawGlobe() {
         svg.selectAll("path").attr("d", path);
     }));
 
-    window.addEventListener('devicemotion', function (event) {
-		const adjustedX = -event.accelerationIncludingGravity.x
-		const adjustedY = -event.accelerationIncludingGravity.y + 9.8
-	  
-		projection.rotate([
-            rotate[0] + adjustedX * k,
-            rotate[1] - adjustedY * k
-        ]);
-        path = d3.geoPath().projection(projection);
-        svg.selectAll("path").attr("d", path);
-	});
+    if (window.DeviceOrientationEvent) {
+        window.addEventListener("deviceorientation", function (event) {
+            projection.rotate([
+                rotate[0] + event.beta * k,
+                rotate[1] - event.gamma * k
+            ]);
+            path = d3.geoPath().projection(projection);
+            svg.selectAll("path").attr("d", path);
+        }, true);
+    } else if (window.DeviceMotionEvent) {
+        window.addEventListener('devicemotion', function (event) {
+            projection.rotate([
+                rotate[0] + event.acceleration.x * 2 * k,
+                rotate[1] - event.acceleration.y * 2 * k
+            ]);
+            path = d3.geoPath().projection(projection);
+            svg.selectAll("path").attr("d", path);
+        }, true);
+    } else {
+        window.addEventListener("MozOrientation", function (orientation) {
+            projection.rotate([
+                rotate[0] + orientation.x * 50 * k,
+                rotate[1] - orientation.y * 50 * k
+            ]);
+            path = d3.geoPath().projection(projection);
+            svg.selectAll("path").attr("d", path);
+        }, true);
+    }
 
     let map = svg.append("g");
 
