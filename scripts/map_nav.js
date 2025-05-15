@@ -1,3 +1,5 @@
+const currentUrl = new URL(window.location.href);
+
 const globeLink = document.getElementById("globe_link");
 const countriesLink = document.getElementById("countries_link");
 const pinsLink = document.getElementById("pins_link");
@@ -15,6 +17,14 @@ moveToCountries = function() {
     sideNav.classList.add("white");
     countCountries();
     emojisDisplay(); 
+
+    if (location.hostname !== "localhost" && location.hostname !== "127.0.0.1") {
+        posthog.capture('$pageview', {
+            $current_url: `${currentUrl.toString()}`,
+            $host: currentUrl.hostname,
+            $pathname: currentUrl.pathname,
+        });
+    }
 }
 
 moveToGlobe = function() {
@@ -23,6 +33,14 @@ moveToGlobe = function() {
     pinsLink.classList.remove("active");
     globeLink.classList.add("active");     
     sideNav.classList.remove("white");  
+
+    if (location.hostname !== "localhost" && location.hostname !== "127.0.0.1") {
+        posthog.capture('$pageview', {
+            $current_url: `${currentUrl.toString()}/globe`,
+            $host: currentUrl.hostname,
+            $pathname: `${currentUrl.pathname}/globe`,
+        });
+    }
 }
 
 moveToPins = function() {
@@ -31,6 +49,14 @@ moveToPins = function() {
     countriesLink.classList.remove("active");
     pinsLink.classList.add("active");
     sideNav.classList.remove("white");
+
+    if (location.hostname !== "localhost" && location.hostname !== "127.0.0.1") {
+        posthog.capture('$pageview', {
+            $current_url: `${currentUrl.toString()}/pins`,
+            $host: currentUrl.hostname,
+            $pathname: `${currentUrl.pathname}/pins`,
+        });
+    }
 }
 
 const ready = function() {
