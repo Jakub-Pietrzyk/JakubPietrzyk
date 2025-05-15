@@ -1,3 +1,5 @@
+const currentUrl = new URL(window.location.href);
+
 const ready = function() {
     const removeWheelListener = () => { window.removeEventListener("wheel", wheelHandler); };
     const removeTouchMoveListener = () => { window.removeEventListener("touchmove", touchMoveHandler); };
@@ -9,6 +11,15 @@ const ready = function() {
     const clickHandler = (e) => {
         e.preventDefault();        
         wrapper.classList.add('wrapped-top');
+
+        if (location.hostname !== "localhost" && location.hostname !== "127.0.0.1") {
+            posthog.capture('$pageview', {
+                $current_url: `${currentUrl.toString()}/content`,
+                $host: currentUrl.hostname,
+                $pathname: `${currentUrl.pathname}/content`,
+            });
+        }
+
     }
 
     const wheelHandler = (e) => {
@@ -16,6 +27,15 @@ const ready = function() {
 
         if (delta > 50) {
             wrapper.classList.add('wrapped-top');
+
+            if (location.hostname !== "localhost" && location.hostname !== "127.0.0.1") {
+                posthog.capture('$pageview', {
+                    $current_url: `${currentUrl.toString()}/content`,
+                    $host: currentUrl.hostname,
+                    $pathname: `${currentUrl.pathname}/content`,
+                });
+            }
+
             removeWheelListener();
         }
     };
@@ -29,6 +49,15 @@ const ready = function() {
 
         if (deltaY > 50) {
             wrapper.classList.add('wrapped-top');
+
+            if (location.hostname !== "localhost" && location.hostname !== "127.0.0.1") {
+                posthog.capture('$pageview', {
+                    $current_url: `${currentUrl.toString()}/content`,
+                    $host: currentUrl.hostname,
+                    $pathname: `${currentUrl.pathname}/content`,
+                });
+            }
+
             removeTouchMoveListener();
         }
     };
