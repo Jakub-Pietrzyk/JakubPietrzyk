@@ -35,9 +35,9 @@
 <body>
 
     <header>
-        <a href="../index.html"><img src="../images/qubix_black.png" alt="Qubix logo" class="logo" /></a>
+        <a href="../index.html"><img src="../images/qubix_white.png" alt="Qubix logo" class="logo" /></a>
 
-        <nav>
+        <nav class="white">
             <ul>
                 <li><a href="./map.html" title="Map">Map</a></li>
                 <li><a href="#" title="Trips" class="active-page">Trips</a></li>
@@ -49,18 +49,20 @@
 
     <div id="trips_content_wrapper">
         <div class="trips-top-banner tooltip-parent">
-            <div class="trips-bg"></div>
+             <div class="Background trips-bg">
+                <canvas class="Background-canvas"></canvas>
+            </div>
             <div id="sd_container">
                 <div class="arrow"></div>
                 <div class="arrow"></div>
             </div>
 
-            <div class="tooltip show-mobile first left" data-position="4" style="right: 30%; top: 40%;">
+            <div class="tooltip show-mobile first" data-position="4" style="right: 35%; top: 47%;">
                 <span class="hint-radius"></span>
                 <span class="hint-dot"></span>
                 <div class="hint-content do--split-children">
                     <p>
-                        The Tatra Mountains are Poland's highest peaks, full of rugged trails, stunning valleys, and crystal-clear lakes.
+                        Sun is setting behind the mountains of Moorea, seen from Tahiti.<br /> September 2024
                     </p>
                 </div>
             </div>
@@ -70,9 +72,9 @@
                 <span class="hint-dot"></span>
                 <div class="hint-content do--split-children">
                     <p>
-                        My friend Kozak leads us to the Szpiglasowa Pass.
+                        Ships anchored seen from the beach in Parc Vaira'i.
                         <br />
-                        March 2023
+                        September 2024
                     </p>
                 </div>
             </div>
@@ -313,7 +315,7 @@
         <a href="https://www.instagram.com/bardzo_maly_czlowiek/" target="_blank" title="Instagram" class="right-icon"><svg  xmlns="http://www.w3.org/2000/svg"  class="social-link"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-instagram"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 8a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z" /><path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /><path d="M16.5 7.5v.01" /></svg></a>
     </footer>
     
-    <script src="../scripts/moving_bg.js"></script>
+    <script src="../heat_distortion/trips/water.js"></script>
     <script src="../scripts/scroll_button.js"></script>
 </body>
 </html>

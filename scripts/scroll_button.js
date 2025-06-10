@@ -7,10 +7,15 @@ const ready = function() {
     const scrollButton = document.getElementById("sd_container");
     const wrapper = document.getElementById("trips_content_wrapper");
 
+    function scrollWrapperDown() {
+        wrapper.classList.add('wrapped-top');
+        document.querySelector('nav.white').classList.remove('white');
+        document.querySelector('img.logo').src = "../images/qubix_black.png"
+    }
 
     const clickHandler = (e) => {
         e.preventDefault();        
-        wrapper.classList.add('wrapped-top');
+        scrollWrapperDown();
 
         if (location.hostname !== "localhost" && location.hostname !== "127.0.0.1") {
             posthog.capture('$pageview', {
@@ -26,7 +31,7 @@ const ready = function() {
         const delta = e.deltaY;
 
         if (delta > 50) {
-            wrapper.classList.add('wrapped-top');
+            scrollWrapperDown();
 
             if (location.hostname !== "localhost" && location.hostname !== "127.0.0.1") {
                 posthog.capture('$pageview', {
@@ -48,7 +53,7 @@ const ready = function() {
         const deltaY = startY - e.touches[0].clientY;
 
         if (deltaY > 50) {
-            wrapper.classList.add('wrapped-top');
+            scrollWrapperDown();
 
             if (location.hostname !== "localhost" && location.hostname !== "127.0.0.1") {
                 posthog.capture('$pageview', {
