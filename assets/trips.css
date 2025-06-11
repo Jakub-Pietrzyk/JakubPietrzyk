@@ -219,13 +219,8 @@
 
 
 @media screen and (max-width: 768px){
-    .trips-top-banner > .tooltip.show-mobile.first{
-        display: flex;
-        left: unset !important;
 
-        right: 10% !important;
-        top: 40% !important;
-    }
+    #sd_container { height: 100px;}
 
     .trips-top-banner > .tooltip.show-mobile.second{
         display: flex;
