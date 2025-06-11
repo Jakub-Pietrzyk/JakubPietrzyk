@@ -1,5 +1,6 @@
 .trips-top-banner > .trips-bg.gallery-bg{
-    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 65%, rgba(255, 255, 255, 0.90) 90%, rgba(255, 255, 255, 0.99) 100%), url('../images/gallery.jpg');
+    /* background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 65%, rgba(255, 255, 255, 0.90) 90%, rgba(255, 255, 255, 0.99) 100%), url('../images/gallery.jpg'); */
+    background-image: url('../images/gallery.jpg');
     background-position: center;
 }
 

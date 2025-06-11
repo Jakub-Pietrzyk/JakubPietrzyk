@@ -8,9 +8,12 @@ const ready = function() {
     const wrapper = document.getElementById("trips_content_wrapper");
 
     function scrollWrapperDown() {
+        const whiteNav = document.querySelector('nav.white')
+        const whiteLogo = document.querySelector('img.logo')
+
         wrapper.classList.add('wrapped-top');
-        document.querySelector('nav.white').classList.remove('white');
-        document.querySelector('img.logo').src = "../images/qubix_black.png"
+        if(whiteNav) whiteNav.classList.remove('white');
+        if(whiteLogo) whiteLogo.src = "../images/qubix_black.png"
     }
 
     const clickHandler = (e) => {

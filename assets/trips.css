@@ -19,6 +19,10 @@
     opacity: 0;
 }
 
+#sd_container.white .arrow::after, #sd_container.white .arrow::before{
+    background-color: white;
+}
+
 .arrow::after, .arrow::before {
     content: "";
     width:21px;

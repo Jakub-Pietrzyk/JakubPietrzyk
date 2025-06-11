@@ -18281,10 +18281,18 @@
 	vec2 waves(vec2 pos, bool masked) {
 		float mask = texture2D(u_maps, pos).b;
 		vec2 intensity = vec2(2.0, 1.0) * pixel();
+
+		float speed = 0.35;
+		float length = 100.0;
+
+		if(u_resolution.x < 768.0){
+			speed = 0.28;
+			length = 50.0;
+		}
 	
 		vec2 waves = vec2(
-			wave(pos.y, 190.0, 0.35),
-			wave(pos.x, 100.0, 0.40)
+			wave(pos.y, (length + 90.0), speed),
+			wave(pos.x, length, speed + 0.05)
 		);
 	
 		return pos + (waves * intensity * (masked ? mask : 1.0));
