@@ -130,6 +130,8 @@ const scrollReady = function() {
     const touchMoveHandler = (e) => {
         if (isScrolling) return;
         const deltaY = startY - e.touches[0].clientY;
+        const isMobile = window.innerWidth <= 768;
+
 
         if (deltaY > 50) {
             // move down
@@ -151,7 +153,7 @@ const scrollReady = function() {
                 moveToCountries();  
                 isScrolling = true;
                 setTimeout(() => { isScrolling = false; }, 1000);
-            } else if(pinsLink.classList.contains("active")){
+            } else if(pinsLink.classList.contains("active") && !isMobile){
                 moveToGlobe();
                 isScrolling = true;
                 setTimeout(() => { isScrolling = false; }, 1000);
