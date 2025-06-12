@@ -155,6 +155,7 @@
 	  haze.dpi = getDPI();
 	  haze.gl.createUniform('1f', 'dpi', haze.dpi);
 	  haze.gl.createUniform('2f', 'resolution', haze.width * haze.dpi, haze.height * haze.dpi);
+	  haze.gl.createUniform('1f', 'screenWidth', parseFloat(window.innerWidth));
 	}
 	updateSize();
 
@@ -18245,6 +18246,7 @@
 	uniform vec2 u_noiseB;
 	uniform vec2 u_mouse;
 	uniform vec2 u_resolution;
+	uniform float u_screenWidth;
 	
 	vec2 pos() {
 		return vec2(0.0, 0.0);
@@ -18285,7 +18287,7 @@
 		float speed = 0.35;
 		float length = 100.0;
 
-		if(u_resolution.x < 768.0){
+		if (u_screenWidth < 768.0) {
 			speed = 0.28;
 			length = 50.0;
 		}
