@@ -120,8 +120,8 @@
 
 	window.addEventListener('devicemotion', function (event) {
 		if (isTouchDevice) {
-			const xAcceleration = -event.accelerationIncludingGravity.x;
-			const yAcceleration = -(event.accelerationIncludingGravity.y - 10.0)
+			let xAcceleration = -event.accelerationIncludingGravity.x;
+			let yAcceleration = -(event.accelerationIncludingGravity.y - 10.0)
 
 			// const xCurve = curve(smoothX(xAcceleration / 10)) * 12;
 			// const yCurve = curve(smoothY(yAcceleration / 10)) * 3;
@@ -132,8 +132,13 @@
 			// xCurve in [-12, 12]
 			// yCurve in [0, 6]
 
-			const xCurve = curve(smoothX(xAcceleration / 10)) * 3;
-			const yCurve = curve(smoothY(yAcceleration / 10)) * 1;
+			if(xAcceleration < -5) xAcceleration = -5;
+			if(xAcceleration > 5) xAcceleration = 5;
+
+			if(yAcceleration > 10) yAcceleration = 10;
+
+			const xCurve = curve(smoothX(xAcceleration / 10)) * 8;
+			const yCurve = curve(smoothY(yAcceleration / 10)) * 2;
 
 			document.querySelector("#log").innerHTML = `x: ${xAcceleration.toFixed(2)}, y: ${yAcceleration.toFixed(2)}`;
 
