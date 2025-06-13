@@ -120,15 +120,21 @@
 
 	window.addEventListener('devicemotion', function (event) {
 		if (isTouchDevice) {
-		  const adjustedX = -event.accelerationIncludingGravity.x / 80; // Increased divisor for less sensitivity
-		  const adjustedY = (-event.accelerationIncludingGravity.y + 9.8) / 80; // Increased divisor for less sensitivity
-	  
-		  haze.gl.createUniform(
-			'2f',
-			'mouse',
-			curve(smoothX(adjustedX)) * 1.5, // Reduced multiplier
-			curve(smoothY(adjustedY)) * 0.375 // Reduced multiplier
-		  );
+			let xAcceleration = -event.accelerationIncludingGravity.x;
+			let yAcceleration = -(event.accelerationIncludingGravity.y - 10.0)
+
+			// xAcceleration in [-10, 10]
+			// yAcceleration in [0, 20]
+
+			if(xAcceleration < -5) xAcceleration = -5;
+			if(xAcceleration > 5) xAcceleration = 5;
+
+			if(yAcceleration > 10) yAcceleration = 10;
+
+			const xCurve = curve(smoothX(xAcceleration / 10)) * 6.5;
+			const yCurve = curve(smoothY(yAcceleration / 10)) * 1.75;
+
+			haze.gl.createUniform('2f', 'mouse', xCurve, yCurve);
 		}
 	  });
 	

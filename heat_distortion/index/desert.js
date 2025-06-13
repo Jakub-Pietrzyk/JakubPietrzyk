@@ -131,8 +131,8 @@
 
 			if(yAcceleration > 10) yAcceleration = 10;
 
-			const xCurve = curve(smoothX(xAcceleration / 10)) * 8;
-			const yCurve = curve(smoothY(yAcceleration / 10)) * 2;
+			const xCurve = curve(smoothX(xAcceleration / 10)) * 6.5;
+			const yCurve = curve(smoothY(yAcceleration / 10)) * 1.75;
 
 			haze.gl.createUniform('2f', 'mouse', xCurve, yCurve);
 		}
