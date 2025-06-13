@@ -131,12 +131,15 @@
 		// 	curve(smoothX(adjustedX)) * 1.5, // Reduced multiplier
 		// 	curve(smoothY(adjustedY)) * 0.375 // Reduced multiplier
 		//   );
-			const x = curve(smoothX(-event.accelerationIncludingGravity.x / 10)) * 12;
-			const y = curve(smoothY(-event.accelerationIncludingGravity.y / 10)) * 3
-		
-			document.querySelector("#log").innerHTML = `x: ${-event.accelerationIncludingGravity.x.toFixed(2)}, y: ${-event.accelerationIncludingGravity.y.toFixed(2)}`;
+			const x = -event.accelerationIncludingGravity.x;
+			const y = -(event.accelerationIncludingGravity.y - 10)
 
-			haze.gl.createUniform('2f', 'mouse', x, y);
+			const xCurve = curve(smoothX(x / 10)) * 12;
+			const yCurve = curve(smoothY(y / 10)) * 3
+
+			document.querySelector("#log").innerHTML = `x: ${x.toFixed(2)}, y: ${y.toFixed(2)}`;
+
+			haze.gl.createUniform('2f', 'mouse', xCurve, yCurve);
 		}
 	  });
 	
