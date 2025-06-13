@@ -120,22 +120,20 @@
 
 	window.addEventListener('devicemotion', function (event) {
 		if (isTouchDevice) {
-		//   const adjustedX = -event.accelerationIncludingGravity.x / 80; // Increased divisor for less sensitivity
-		//   const adjustedY = (-event.accelerationIncludingGravity.y + 9.8) / 80; // Increased divisor for less sensitivity
-	  
-		// 	console.log('Device motion detected:', adjustedX, adjustedY);
-
-		//   haze.gl.createUniform(
-		// 	'2f',
-		// 	'mouse',
-		// 	curve(smoothX(adjustedX)) * 1.5, // Reduced multiplier
-		// 	curve(smoothY(adjustedY)) * 0.375 // Reduced multiplier
-		//   );
 			const xAcceleration = -event.accelerationIncludingGravity.x;
 			const yAcceleration = -(event.accelerationIncludingGravity.y - 10.0)
 
-			const xCurve = curve(smoothX(xAcceleration / 10)) * 12;
-			const yCurve = curve(smoothY(yAcceleration / 10)) * 3
+			// const xCurve = curve(smoothX(xAcceleration / 10)) * 12;
+			// const yCurve = curve(smoothY(yAcceleration / 10)) * 3;
+
+			// xAcceleration in [-10, 10]
+			// yAcceleration in [0, 20]
+
+			// xCurve in [-12, 12]
+			// yCurve in [0, 6]
+
+			const xCurve = curve(smoothX(xAcceleration / 10)) * 3;
+			const yCurve = curve(smoothY(yAcceleration / 10)) * 1;
 
 			document.querySelector("#log").innerHTML = `x: ${xAcceleration.toFixed(2)}, y: ${yAcceleration.toFixed(2)}`;
 
