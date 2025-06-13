@@ -123,14 +123,8 @@
 			let xAcceleration = -event.accelerationIncludingGravity.x;
 			let yAcceleration = -(event.accelerationIncludingGravity.y - 10.0)
 
-			// const xCurve = curve(smoothX(xAcceleration / 10)) * 12;
-			// const yCurve = curve(smoothY(yAcceleration / 10)) * 3;
-
 			// xAcceleration in [-10, 10]
 			// yAcceleration in [0, 20]
-
-			// xCurve in [-12, 12]
-			// yCurve in [0, 6]
 
 			if(xAcceleration < -5) xAcceleration = -5;
 			if(xAcceleration > 5) xAcceleration = 5;
@@ -140,7 +134,7 @@
 			const xCurve = curve(smoothX(xAcceleration / 10)) * 8;
 			const yCurve = curve(smoothY(yAcceleration / 10)) * 2;
 
-			document.querySelector("#log").innerHTML = `x: ${xAcceleration.toFixed(2)}, y: ${yAcceleration.toFixed(2)}`;
+			document.querySelector("#logI").innerHTML = `x: ${xAcceleration.toFixed(2)}, y: ${yAcceleration.toFixed(2)}`;
 
 			haze.gl.createUniform('2f', 'mouse', xCurve, yCurve);
 		}
