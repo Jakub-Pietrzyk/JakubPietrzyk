@@ -132,7 +132,7 @@
 		// 	curve(smoothY(adjustedY)) * 0.375 // Reduced multiplier
 		//   );
 			const x = -event.accelerationIncludingGravity.x;
-			const y = -(event.accelerationIncludingGravity.y - 10)
+			const y = -(event.accelerationIncludingGravity.y - 100)
 
 			const xCurve = curve(smoothX(x / 10)) * 12;
 			const yCurve = curve(smoothY(y / 10)) * 3
