@@ -134,8 +134,6 @@
 			const xCurve = curve(smoothX(xAcceleration / 10)) * 8;
 			const yCurve = curve(smoothY(yAcceleration / 10)) * 2;
 
-			document.querySelector("#logI").innerHTML = `x: ${xAcceleration.toFixed(2)}, y: ${yAcceleration.toFixed(2)}`;
-
 			haze.gl.createUniform('2f', 'mouse', xCurve, yCurve);
 		}
 	  });
