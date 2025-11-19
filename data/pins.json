@@ -57,10 +57,10 @@
         {"lat": 1.357107, "lon": 103.8194992, "popup_content": "Singapore, Feb 2025<br/><a href='../pages/trips/malaysia.html'>Link<a>"},
         {"lat": 3.1526589, "lon": 101.7022205, "popup_content": "Kuala Lumpur, Mar 2025<br/><a href='../pages/trips/malaysia.html'>Link<a>"},
         {"lat": 4.3822684, "lon": 102.4017098, "popup_content": "Taman Negara, Mar 2025<br/><a href='../pages/trips/malaysia.html'>Link<a>"},
-
         {"lat": 39.9075, "lon": 116.39723, "popup_content": "Beijing, Jul 2025"},
         {"lat": 31.22222, "lon": 121.45806, "popup_content": "Shanghai, Jul 2025"},
         {"lat": 30.29365, "lon": 120.16142, "popup_content": "Hangzhou, Jul 2025"},
-        {"lat": 25.28022, "lon": 110.29639, "popup_content": "Guilin, Jul 2025"}
+        {"lat": 25.28022, "lon": 110.29639, "popup_content": "Guilin, Jul 2025"},
+        {"lat": 40.416775, "lon": -3.703790, "popup_content": "Madrid, Nov 2025"}
     ]
 }
