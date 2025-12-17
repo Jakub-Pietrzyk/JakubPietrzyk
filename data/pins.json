@@ -61,6 +61,12 @@
         {"lat": 31.22222, "lon": 121.45806, "popup_content": "Shanghai, Jul 2025"},
         {"lat": 30.29365, "lon": 120.16142, "popup_content": "Hangzhou, Jul 2025"},
         {"lat": 25.28022, "lon": 110.29639, "popup_content": "Guilin, Jul 2025"},
-        {"lat": 40.416775, "lon": -3.703790, "popup_content": "Madrid, Nov 2025"}
+        {"lat": 40.416775, "lon": -3.703790, "popup_content": "Madrid, Nov 2025"}, 
+        {"lat": -15.77972, "lon": -47.92972, "popup_content": "Brasilia, Dec 2025"},
+        {"lat": -3.71722, "lon": -38.54306, "popup_content": "Fortaleza, Dec 2025"},
+        {"lat": -3.10194 , "lon": -60.025, "popup_content": "Manaus, Dec 2025"},
+        {"lat": 2.81972 , "lon": -60.67333, "popup_content": "Boa Vista, Dec 2025"},
+        {"lat": 5.165017, "lon": -60.783247, "popup_content": "Mt. Roraima, Dec 2025"},
+        {"lat": 5.572217, "lon": -61.487980, "popup_content": "Gran Sabana, Dec 2025"}
     ]
 }
