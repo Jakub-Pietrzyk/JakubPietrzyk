@@ -67,6 +67,8 @@
         {"lat": -3.10194 , "lon": -60.025, "popup_content": "Manaus, Dec 2025"},
         {"lat": 2.81972 , "lon": -60.67333, "popup_content": "Boa Vista, Dec 2025"},
         {"lat": 5.165017, "lon": -60.783247, "popup_content": "Mt. Roraima, Dec 2025"},
-        {"lat": 5.572217, "lon": -61.487980, "popup_content": "Gran Sabana, Dec 2025"}
+        {"lat": 5.572217, "lon": -61.487980, "popup_content": "Gran Sabana, Dec 2025"},
+        {"lat": 20.798363, "lon": -156.331924, "popup_content": "Maui, Mar 2026"},
+        {"lat": 22.108543, "lon": -159.496765, "popup_content": "Kauai, Mar 2026"}
     ]
 }
