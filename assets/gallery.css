@@ -6,12 +6,17 @@
 
 .trips-white-cont.gallery{
     width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 50px;
+    box-sizing: border-box;
 }
 
 .gallery-cont{
     width: 100vw;
     height: calc(100vh - 300px);
-    margin-top: 170px;
+    min-height: 630px;
 
     display: flex;
     flex-direction: column;
@@ -53,9 +58,13 @@
 }
 
 @media screen and (max-width: 768px){
+    .trips-white-cont.gallery{
+        padding-top: 90px;
+    }
+
     .gallery-cont{
         height: calc(100vh - 250px);
-        margin-top: 160px;
+        min-height: 500px;
     }
 
     .gallery-img{
