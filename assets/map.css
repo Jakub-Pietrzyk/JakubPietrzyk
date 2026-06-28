@@ -123,6 +123,141 @@ nav.side-nav a.active::after{ width: 30px;}
 .leaflet-control-attribution{ display: none; }
 .leaflet-control-zoom{display: none;}
 
+/* Stats section */
+#stats_cont {
+    position: relative;
+    background: #fff;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 120px 60px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+.stats-wrapper {
+    max-width: 1000px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.stats-group {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.stats-group-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #eee;
+}
+
+.stats-group-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+.stats-group-grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.stats-group-grid-6 {
+    grid-template-columns: repeat(6, 1fr);
+}
+
+.stat-card {
+    background: #fafafa;
+    border-radius: 10px;
+    padding: 16px;
+    border: 1px solid #eee;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    border-color: #ddd;
+}
+
+.stat-card-highlight {
+    border-left: 3px solid #e84034;
+}
+
+.stat-card-continent {
+    padding: 14px;
+}
+
+.stat-icon {
+    width: 24px;
+    height: 24px;
+    margin-bottom: 10px;
+}
+
+.stat-icon svg {
+    width: 100%;
+    height: 100%;
+    stroke: #e84034;
+}
+
+.stat-label {
+    font-size: 10px;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+}
+
+.stat-value {
+    font-size: 22px;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 2px;
+}
+
+.stat-card-continent .stat-value {
+    font-size: 18px;
+}
+
+.stat-total {
+    font-size: 14px;
+    color: #aaa;
+    font-weight: 400;
+}
+
+.stat-card-continent .stat-total {
+    font-size: 12px;
+}
+
+.stat-sublabel {
+    font-size: 11px;
+    color: #999;
+}
+
+.stat-progress {
+    height: 5px;
+    background: #eee;
+    border-radius: 3px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+.stat-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #e84034 0%, #f25a4d 100%);
+    border-radius: 3px;
+    width: 0%;
+    transition: width 1.5s ease-out;
+}
+
 @media screen and (max-width: 768px){
     nav.side-nav{
         left: 0;
@@ -130,12 +265,12 @@ nav.side-nav a.active::after{ width: 30px;}
         bottom: 80px;
         width: 100%;
     }
-    
-    nav.side-nav ul{ flex-direction: row; }
-    nav.side-nav li{ flex: 0.33; }
-        
+
+    nav.side-nav ul{ flex-direction: row; gap: 0; justify-content: center; }
+    nav.side-nav li{ padding: 0; margin: 0 19px; }
+
     nav.side-nav a{
-        font-size: 14px;
+        font-size: 13px;
         position: relative;
         width: fit-content;
         margin: 0 auto
@@ -147,7 +282,7 @@ nav.side-nav a.active::after{ width: 30px;}
         left: 0;
         margin-left:0;
     }
-    
+
     nav.side-nav a.active::after{ width: 40px;}
 
     nav.side-nav.white a{ color: black; }
@@ -167,7 +302,7 @@ nav.side-nav a.active::after{ width: 30px;}
 
     #countries_cont h2 > span{
         font-size: 45px;
-    }    
+    }
 
     #countries_list{
         bottom: unset;
@@ -180,12 +315,127 @@ nav.side-nav a.active::after{ width: 30px;}
 
     #pins_map{
         position: absolute;
-        top: 150px;    
+        top: 150px;
         /* width: calc(100% - 40px); */
         width: 100%;
         height: calc(100vh - 350px);
         /* left: 20px; */
         left: 0;
         border-radius: 0;
+    }
+
+    /* Stats mobile - accordion style */
+    #stats_cont {
+        padding: 160px 12px 160px;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .stats-wrapper {
+        gap: 8px;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .stats-group {
+        gap: 0;
+        border: 1px solid #eee;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    .stats-group-title {
+        font-size: 11px;
+        margin: 0;
+        padding: 12px 14px;
+        border-bottom: none;
+        background: #fafafa;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        user-select: none;
+    }
+
+    .stats-group-title::after {
+        content: '▼';
+        font-size: 8px;
+        color: #999;
+        transition: transform 0.3s ease;
+    }
+
+    .stats-group.collapsed .stats-group-title::after {
+        transform: rotate(-90deg);
+    }
+
+    .stats-group-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 6px;
+        padding: 10px;
+        max-height: 300px;
+        transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out, opacity 0.25s ease-in-out 0.1s;
+        opacity: 1;
+        overflow: hidden;
+    }
+
+    .stats-group.collapsed .stats-group-grid {
+        max-height: 0;
+        padding: 0 10px;
+        opacity: 0;
+        transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out, opacity 0.15s ease-in-out;
+    }
+
+    .stats-group-grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .stats-group-grid-6 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .stat-card {
+        padding: 8px 10px;
+        border-radius: 6px;
+    }
+
+    .stat-card-highlight {
+        border-left-width: 2px;
+    }
+
+    .stat-icon {
+        width: 16px;
+        height: 16px;
+        margin-bottom: 4px;
+    }
+
+    .stat-label {
+        font-size: 8px;
+        margin-bottom: 3px;
+    }
+
+    .stat-value {
+        font-size: 14px;
+        margin-bottom: 1px;
+    }
+
+    .stat-card-continent .stat-value {
+        font-size: 13px;
+    }
+
+    .stat-total {
+        font-size: 10px;
+    }
+
+    .stat-sublabel {
+        font-size: 8px;
+    }
+
+    .stat-progress {
+        height: 3px;
+        margin-top: 6px;
+    }
+
+    .stat-card-continent {
+        padding: 6px 8px;
     }
 }

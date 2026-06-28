@@ -60,6 +60,7 @@
             <li><a id="countries_link" class="maps-sidenav-link active" href="#" title="Countries">Countries</a></li>
             <li><a id="globe_link" class="maps-sidenav-link" href="#" title="Globe" >Globe</a></li>
             <li><a id="pins_link" class="maps-sidenav-link" href="#" title="Pins">Pins</a></li>
+            <li><a id="stats_link" class="maps-sidenav-link" href="#" title="Stats">Stats</a></li>
         </ul>
     </nav>
 
@@ -106,6 +107,133 @@
         </div>
 
 
+        <div class="map-content" id="stats_cont">
+            <div class="stats-wrapper">
+                <div class="stats-group">
+                    <h3 class="stats-group-title">Overview</h3>
+                    <div class="stats-group-grid">
+                        <div class="stat-card stat-card-highlight">
+                            <div class="stat-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                            </div>
+                            <div class="stat-label">Farthest from home</div>
+                            <div class="stat-value" id="stat-farthest-place">--</div>
+                            <div class="stat-sublabel" id="stat-farthest-distance">-- km</div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M9 8h1"/><path d="M9 12h1"/><path d="M9 16h1"/><path d="M14 8h1"/><path d="M14 12h1"/><path d="M14 16h1"/><path d="M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"/></svg>
+                            </div>
+                            <div class="stat-label">Countries</div>
+                            <div class="stat-value"><span id="stat-countries">--</span> <span class="stat-total">/ 195</span></div>
+                            <div class="stat-progress"><div class="stat-progress-bar" id="progress-countries"></div></div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                            </div>
+                            <div class="stat-label">Continents</div>
+                            <div class="stat-value"><span id="stat-continents">--</span> <span class="stat-total">/ 7</span></div>
+                            <div class="stat-progress"><div class="stat-progress-bar" id="progress-continents"></div></div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            </div>
+                            <div class="stat-label">Places pinned</div>
+                            <div class="stat-value" id="stat-pins">--</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stats-group">
+                    <h3 class="stats-group-title">Extreme points</h3>
+                    <div class="stats-group-grid stats-group-grid-4">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="M5 5l7-3 7 3"/></svg>
+                            </div>
+                            <div class="stat-label">Northernmost</div>
+                            <div class="stat-value" id="stat-north">--</div>
+                            <div class="stat-sublabel" id="stat-north-coords">--</div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="M5 19l7 3 7-3"/></svg>
+                            </div>
+                            <div class="stat-label">Southernmost</div>
+                            <div class="stat-value" id="stat-south">--</div>
+                            <div class="stat-sublabel" id="stat-south-coords">--</div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20"/><path d="M5 5l-3 7 3 7"/></svg>
+                            </div>
+                            <div class="stat-label">Westernmost</div>
+                            <div class="stat-value" id="stat-west">--</div>
+                            <div class="stat-sublabel" id="stat-west-coords">--</div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20"/><path d="M19 5l3 7-3 7"/></svg>
+                            </div>
+                            <div class="stat-label">Easternmost</div>
+                            <div class="stat-value" id="stat-east">--</div>
+                            <div class="stat-sublabel" id="stat-east-coords">--</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stats-group">
+                    <h3 class="stats-group-title">By continent</h3>
+                    <div class="stats-group-grid stats-group-grid-6">
+                        <div class="stat-card stat-card-continent">
+                            <div class="stat-label">Europe</div>
+                            <div class="stat-value"><span id="stat-europe">--</span> <span class="stat-total">/ 44</span></div>
+                            <div class="stat-progress"><div class="stat-progress-bar" id="progress-europe"></div></div>
+                        </div>
+
+                        <div class="stat-card stat-card-continent">
+                            <div class="stat-label">Asia</div>
+                            <div class="stat-value"><span id="stat-asia">--</span> <span class="stat-total">/ 48</span></div>
+                            <div class="stat-progress"><div class="stat-progress-bar" id="progress-asia"></div></div>
+                        </div>
+
+                        <div class="stat-card stat-card-continent">
+                            <div class="stat-label">N. America</div>
+                            <div class="stat-value"><span id="stat-north-america">--</span> <span class="stat-total">/ 23</span></div>
+                            <div class="stat-progress"><div class="stat-progress-bar" id="progress-north-america"></div></div>
+                        </div>
+
+                        <div class="stat-card stat-card-continent">
+                            <div class="stat-label">S. America</div>
+                            <div class="stat-value"><span id="stat-south-america">--</span> <span class="stat-total">/ 12</span></div>
+                            <div class="stat-progress"><div class="stat-progress-bar" id="progress-south-america"></div></div>
+                        </div>
+
+                        <div class="stat-card stat-card-continent">
+                            <div class="stat-label">Africa</div>
+                            <div class="stat-value"><span id="stat-africa">--</span> <span class="stat-total">/ 54</span></div>
+                            <div class="stat-progress"><div class="stat-progress-bar" id="progress-africa"></div></div>
+                        </div>
+
+                        <div class="stat-card stat-card-continent">
+                            <div class="stat-label">Oceania</div>
+                            <div class="stat-value"><span id="stat-oceania">--</span> <span class="stat-total">/ 14</span></div>
+                            <div class="stat-progress"><div class="stat-progress-bar" id="progress-oceania"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
     </div>
     
 
@@ -122,5 +250,6 @@
     <script src="../scripts/globe.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
     <script src="../scripts/pins_map.js"></script>
+    <script src="../scripts/stats.js"></script>
 </body>
 </html>

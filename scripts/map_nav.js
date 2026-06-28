@@ -3,6 +3,7 @@ const currentUrl = new URL(window.location.href);
 const globeLink = document.getElementById("globe_link");
 const countriesLink = document.getElementById("countries_link");
 const pinsLink = document.getElementById("pins_link");
+const statsLink = document.getElementById("stats_link");
 
 const wrapper = document.getElementById("map_content_wrapper");
 const sideNav = document.getElementById("side_nav");
@@ -13,6 +14,7 @@ moveToCountries = function() {
     wrapper.style.top = `0px`;
     globeLink.classList.remove("active");
     pinsLink.classList.remove("active");
+    statsLink.classList.remove("active");
     countriesLink.classList.add("active");
     sideNav.classList.add("white");
     countCountries();
@@ -31,7 +33,8 @@ moveToGlobe = function() {
     wrapper.style.top = `-100vh`;
     countriesLink.classList.remove("active");
     pinsLink.classList.remove("active");
-    globeLink.classList.add("active");     
+    statsLink.classList.remove("active");
+    globeLink.classList.add("active");
     sideNav.classList.remove("white");  
 
     if (location.hostname !== "localhost" && location.hostname !== "127.0.0.1") {
@@ -47,6 +50,7 @@ moveToPins = function() {
     wrapper.style.top = `-200vh`;
     globeLink.classList.remove("active");
     countriesLink.classList.remove("active");
+    statsLink.classList.remove("active");
     pinsLink.classList.add("active");
     sideNav.classList.remove("white");
 
@@ -55,6 +59,27 @@ moveToPins = function() {
             $current_url: `${currentUrl.toString()}/pins`,
             $host: currentUrl.hostname,
             $pathname: `${currentUrl.pathname}/pins`,
+        });
+    }
+}
+
+moveToStats = function() {
+    wrapper.style.top = `-300vh`;
+    globeLink.classList.remove("active");
+    countriesLink.classList.remove("active");
+    pinsLink.classList.remove("active");
+    statsLink.classList.add("active");
+    sideNav.classList.remove("white");
+
+    if (typeof calculateStats === 'function') {
+        calculateStats();
+    }
+
+    if (location.hostname !== "localhost" && location.hostname !== "127.0.0.1") {
+        posthog.capture('$pageview', {
+            $current_url: `${currentUrl.toString()}/stats`,
+            $host: currentUrl.hostname,
+            $pathname: `${currentUrl.pathname}/stats`,
         });
     }
 }
@@ -78,10 +103,18 @@ const ready = function() {
 
     pinsLink.addEventListener("click", (e) => {
         e.preventDefault();
-        
+
         if (pinsLink.classList.contains("active")) return;
 
         moveToPins();
+    });
+
+    statsLink.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        if (statsLink.classList.contains("active")) return;
+
+        moveToStats();
     });
 }
 
@@ -89,6 +122,7 @@ const scrollReady = function() {
     const globeLink = document.getElementById("globe_link");
     const countriesLink = document.getElementById("countries_link");
     const pinsLink = document.getElementById("pins_link");
+    const statsLink = document.getElementById("stats_link");
 
     const wheelHandler = (e) => {
         if (isScrolling) return;
@@ -98,11 +132,15 @@ const scrollReady = function() {
             // move down
 
             if(countriesLink.classList.contains("active")){
-                moveToGlobe();  
+                moveToGlobe();
                 isScrolling = true;
                 setTimeout(() => { isScrolling = false; }, 1000);
             } else if(globeLink.classList.contains("active")){
                 moveToPins();
+                isScrolling = true;
+                setTimeout(() => { isScrolling = false; }, 1000);
+            } else if(pinsLink.classList.contains("active")){
+                moveToStats();
                 isScrolling = true;
                 setTimeout(() => { isScrolling = false; }, 1000);
             } else {
@@ -111,11 +149,15 @@ const scrollReady = function() {
         } else if (delta < -50) {
             // move top
             if(globeLink.classList.contains("active")){
-                moveToCountries();  
+                moveToCountries();
                 isScrolling = true;
                 setTimeout(() => { isScrolling = false; }, 1000);
             } else if(pinsLink.classList.contains("active")){
                 moveToGlobe();
+                isScrolling = true;
+                setTimeout(() => { isScrolling = false; }, 1000);
+            } else if(statsLink.classList.contains("active")){
+                moveToPins();
                 isScrolling = true;
                 setTimeout(() => { isScrolling = false; }, 1000);
             } else {
@@ -137,11 +179,15 @@ const scrollReady = function() {
             // move down
 
             if(countriesLink.classList.contains("active")){
-                moveToGlobe();  
+                moveToGlobe();
                 isScrolling = true;
                 setTimeout(() => { isScrolling = false; }, 1000);
             } else if(globeLink.classList.contains("active")){
                 moveToPins();
+                isScrolling = true;
+                setTimeout(() => { isScrolling = false; }, 1000);
+            } else if(pinsLink.classList.contains("active")){
+                moveToStats();
                 isScrolling = true;
                 setTimeout(() => { isScrolling = false; }, 1000);
             } else {
@@ -150,11 +196,15 @@ const scrollReady = function() {
         } else if (deltaY < -50) {
             // move top
             if(globeLink.classList.contains("active")){
-                moveToCountries();  
+                moveToCountries();
                 isScrolling = true;
                 setTimeout(() => { isScrolling = false; }, 1000);
             } else if(pinsLink.classList.contains("active")){
                 moveToGlobe();
+                isScrolling = true;
+                setTimeout(() => { isScrolling = false; }, 1000);
+            } else if(statsLink.classList.contains("active")){
+                moveToPins();
                 isScrolling = true;
                 setTimeout(() => { isScrolling = false; }, 1000);
             } else {
