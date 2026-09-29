@@ -69,6 +69,10 @@
         {"lat": 5.165017, "lon": -60.783247, "popup_content": "Mt. Roraima, Dec 2025"},
         {"lat": 5.572217, "lon": -61.487980, "popup_content": "Gran Sabana, Dec 2025"},
         {"lat": 20.798363, "lon": -156.331924, "popup_content": "Maui, Mar 2026"},
-        {"lat": 22.108543, "lon": -159.496765, "popup_content": "Kauai, Mar 2026"}
+        {"lat": 22.108543, "lon": -159.496765, "popup_content": "Kauai, Mar 2026"},
+        {"lat": 48.5665, "lon": 13.43122, "popup_content": "Passau, Sep 2026"},
+        {"lat": 48.13743, "lon": 11.57549, "popup_content": "Munich, Sep 2026"},
+        {"lat": 47.14151, "lon": 9.52154, "popup_content": "Liechtenstein, Sep 2026"},
+        {"lat": 45.92375, "lon": 6.86933, "popup_content": "Chamonix, Sep 2026"}
     ]
 }
